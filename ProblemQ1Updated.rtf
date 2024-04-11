@@ -1,0 +1,146 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil Segoe UI;}}
+{\colortbl ;\red0\green0\blue0;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\tx720\cf1\f0\fs38\lang16393 CREATE DATABASE university_db;\par
+USE university_db;\par
+\par
+CREATE TABLE student(\par
+rollno INT PRIMARY KEY,\par
+name VARCHAR(50),\par
+marks INT NOT NULL,\par
+grade VARCHAR(1),\par
+city VARCHAR(50)\par
+);\par
+\par
+INSERT INTO student\par
+(rollno, name, marks, grade, city)\par
+VALUES\par
+(101,"Prithwi",78,"B","Mumbai"),\par
+(102,"Rohit",89,"A","PalGhar"),\par
+(103,"Shreyash",88,"A","Mumbai"),\par
+(104,"Sneha",78,"B","Pune"),\par
+(105,"Prince",98,"B","Mumbai"),\par
+(106,"vikash",12,"F","Varanasi"),\par
+(107,"Pawan",31,"F","Varanasi"),\par
+(108,"Dipika",100,"A","Chandauli"),\par
+(109,"Sneha",78,"B","Pune"),\par
+(110,"Rinki",18,"F","Chandauli");\par
+\par
+SELECT * FROM student;\par
+SELECT name,rollno FROM student;\par
+SELECT rollno,marks FROM student;\par
+SELECT DISTINCT city FROM student;\par
+SELECT * \par
+FROM student\par
+WHERE marks>88;\par
+\par
+SELECT * \par
+FROM student\par
+WHERE city="Mumbai";\par
+\par
+SELECT * \par
+FROM student\par
+WHERE marks>80 AND city="Mumbai";\par
+\par
+SELECT * FROM student WHERE marks>80 AND city="Mumbai";\par
+\par
+SELECT * FROM student WHERE marks > 90 or city = "Mumbai;";\par
+\par
+SELECT * FROM student WHERE marks BETWEEN 90 AND 80;\par
+\par
+SELECT * FROM student WHERE marks BETWEEN 80 AND 90;\par
+\par
+SELECT * FROM student WHERE city IN ('Chandauli','Mumbai');\par
+\par
+SELECT * FROM student WHERE city IN ('Delhi','Mumbai');\par
+\par
+SELECT * FROM student LIMIT 4;\par
+\par
+SELECT * \par
+FROM student\par
+ORDER BY city ASC;\par
+\par
+SELECT * \par
+FROM student\par
+ORDER BY city DESC;\par
+\par
+SELECT  \par
+AVG(marks) \par
+FROM student;\par
+\par
+SELECT\par
+COUNT(rollno)\par
+FROM student;\par
+\par
+SELECT city\par
+FROM student\par
+group by city;\par
+\par
+SELECT city, count(name)\par
+FROM student\par
+group by city;\par
+\par
+SELECT city, count(rollno)\par
+FROM student\par
+group by city;\par
+\par
+SELECT city, name, count(rollno)\par
+FROM student\par
+group by city,name;\par
+\par
+-- Write the query to find avg marks in marks each city in ascending order.\par
+SELECT city, AVG(marks)\par
+FROM student\par
+GROUP BY city\par
+ORDER BY avg(marks) DESC;\par
+\par
+SELECT city, AVG(marks)\par
+FROM student\par
+GROUP BY city\par
+ORDER BY city;\par
+\par
+SELECT grade, count(rollno)\par
+FROM student\par
+GROUP BY grade\par
+ORDER BY grade ASC;\par
+\par
+select city, count(rollno)\par
+FROM student\par
+group by city\par
+Having max(marks)<85;\par
+\par
+SELECT city\par
+FROM student\par
+WHERE grade = "A"\par
+GROUP BY city\par
+HAVING max(marks)>75\par
+ORDER BY city DESC;\par
+\par
+SET SQL_SAFE_UPDATES = 0;\par
+\par
+UPDATE student\par
+SET grade = "0"\par
+WHERE grade = "A";\par
+\par
+Select * from student;\par
+\par
+UPDATE student\par
+SET grade = "K"\par
+WHERE grade = "F";\par
+\par
+UPDATE student\par
+SET marks = 200\par
+WHERE rollno = 106;\par
+\par
+Select * from student;\par
+\par
+UPDATE student\par
+SET marks  = marks + 1;\par
+\par
+Select * from student;\par
+\par
+DELETE from student\par
+WHERE marks=19;\par
+\par
+Select * from student;\par
+}
