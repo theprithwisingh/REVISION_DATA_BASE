@@ -1,0 +1,65 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil Segoe UI;}{\f1\fnil\fcharset0 Segoe UI;}}
+{\colortbl ;\red0\green0\blue0;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\tx720\cf1\f0\fs38\lang16393 CREATE DATABASE student_db;\par
+USE student_db;\par
+\par
+CREATE TABLE student(\par
+id INT PRIMARY KEY,\par
+name VARCHAR(50),\par
+course VARCHAR(50),\par
+age INT,\par
+city VARCHAR(50)\par
+);\par
+\par
+INSERT INTO student \par
+(id, name, course, age, city)\par
+VALUES\par
+(1,"PRITHWI SINGH", "SDE", 24, "CHANDAULI"),\par
+(2,"HARRY", "FSD", 29, "DELHI"),\par
+(3,"HITESH", "AD", 35, "JAYPUR"),\par
+(4,"HARKIRAT", "WEB3", 30, "CHANDIGARH"),\par
+(5,"SANKET", "SDE-2", 28, "BANGLORE");\par
+\par
+SELECT * FROM student;\par
+\par
+ALTER TABLE student\par
+ADD COLUMN exp INT;\par
+\par
+SET SQL_SAFE_UPDATES = 0;\par
+\par
+UPDATE student\par
+SET age = 25\par
+WHERE age = 24;\par
+\par
+UPDATE student\par
+SET exp = 2\par
+WHERE id = 1;\par
+\par
+ALTER TABLE student\par
+ADD COLUMN salary INT;\par
+\par
+ALTER TABLE student\par
+RENAME COLUMN name TO clients;\par
+\par
+\f1 -- Add column name\f0\par
+ALTER TABLE student\par
+ADD COLUMN salary INT;\par
+\par
+\f1 -- Changing column name\f0\par
+ALTER TABLE student \par
+CHANGE age stu_age INT;\par
+\par
+\f1 -- Deleting column\f0\par
+ALTER TABLE student\par
+DROP COLUMN salary;\par
+\par
+-- TRUNCATE TABLE table_name;\par
+-- This statement will delete all rows from the table, but the table structure will remain intact(not break)\par
+\par
+UPDATE student\par
+SET stu_age = 40\par
+WHERE id = 5;\par
+\par
+SELECT * FROM student;\par
+}
